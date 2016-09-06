@@ -20,3 +20,27 @@ pz.math.areaToRadius = function( value )
 {
 	return Math.sqrt(value / Math.PI) * 2;
 }
+
+pz.math.getUniqueRandomIntegers( min, max, count, sorted ) = function{
+ if( min >= max || count > max-min ){
+    throw( "Out of range. Please check your parameters");
+ }
+ // Generate list of integers
+ var int_list = [];
+ for( var i=min; i<max; i++ ){
+   int_list.push(i);
+ }
+ // Pick random ones
+ var results = [];
+ for (var i = 0; i < count; i++) {
+     var randIndex = Math.floor( Math.random()*int_list.length );
+     var element = int_list.splice( randIndex, 1 );
+     results.push( element[0] );     
+ }
+ // Sort, if requested to do so
+ if( sorted )
+    results.sort();
+
+ //console.log( results );
+ return results;
+};
