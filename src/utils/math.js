@@ -39,7 +39,7 @@ pz.math.getUniqueRandomIntegers( min, max, count, sorted ) = function{
  }
  // Sort, if requested to do so
  if( sorted )
-    results.sort();
+    results.sort(function(a,b){ return a<b?-1:1});
 
  //console.log( results );
  return results;
